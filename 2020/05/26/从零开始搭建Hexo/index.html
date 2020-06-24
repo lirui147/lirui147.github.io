@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="前言虽说是网站，对于个人来说，或许一般叫作博客。但我不希望它仅仅是一个博客，而是能够成为一个处于自己现实生活之外、自由、实验、不用畏惧他人眼光甚至可以独断专行的地方。我会从整体上对搭建网站的流程和使用到的技术及步骤进行介绍我希望看完此篇文章后，此前对此方面知识一无所知的小白，到最后也能搭建出一个属于自己的站点。（前提是认识基础的英语单词和善用搜索引擎） 接下来就是我安装hexo博客的过程 一. 下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始搭建Hexo">
+<meta property="og:url" content="http://yoursite.com/2020/05/26/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAHexo/index.html">
+<meta property="og:site_name" content="陈龙 の 博客">
+<meta property="og:description" content="前言虽说是网站，对于个人来说，或许一般叫作博客。但我不希望它仅仅是一个博客，而是能够成为一个处于自己现实生活之外、自由、实验、不用畏惧他人眼光甚至可以独断专行的地方。我会从整体上对搭建网站的流程和使用到的技术及步骤进行介绍我希望看完此篇文章后，此前对此方面知识一无所知的小白，到最后也能搭建出一个属于自己的站点。（前提是认识基础的英语单词和善用搜索引擎） 接下来就是我安装hexo博客的过程 一. 下">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yjxsbiubiu.top/CDN/git.png">
+<meta property="og:image" content="https://yjxsbiubiu.top/CDN/45738.png">
+<meta property="og:image" content="https://yjxsbiubiu.top/CDN/50853.png">
+<meta property="og:image" content="https://yjxsbiubiu.top/CDN/2644.png">
+<meta property="og:image" content="https://yjxsbiubiu.top/CDN/152806.png">
+<meta property="og:image" content="http://img.blog.csdn.net/20161026183423330">
+<meta property="og:image" content="http://img.blog.csdn.net/20161026183438862">
+<meta property="og:image" content="http://img.blog.csdn.net/20161026183459454">
+<meta property="og:image" content="http://img.blog.csdn.net/20161026183549938">
+<meta property="og:image" content="http://img.blog.csdn.net/20161026183614204">
+<meta property="og:image" content="http://img.blog.csdn.net/20161026183638360">
+<meta property="og:image" content="http://img.blog.csdn.net/20161026183841596">
+<meta property="og:image" content="http://img.blog.csdn.net/20161027110146361">
+<meta property="og:image" content="http://img.blog.csdn.net/20161027110158205">
+<meta property="og:image" content="http://img.blog.csdn.net/20161027110206799">
+<meta property="og:image" content="http://img.blog.csdn.net/20161026183947385">
+<meta property="article:published_time" content="2020-05-26T08:10:51.000Z">
+<meta property="article:modified_time" content="2020-05-30T13:59:27.629Z">
+<meta property="article:author" content="陈龙">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yjxsbiubiu.top/CDN/git.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/05/26/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAHexo/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>从零开始搭建Hexo | 陈龙 の 博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">陈龙 の 博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/26/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAHexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈龙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈龙 の 博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          从零开始搭建Hexo
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-26 16:10:51" itemprop="dateCreated datePublished" datetime="2020-05-26T16:10:51+08:00">2020-05-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-30 21:59:27" itemprop="dateModified" datetime="2020-05-30T21:59:27+08:00">2020-05-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>虽说是网站，对于个人来说，或许一般叫作博客。<br>但我不希望它仅仅是一个博客，而是能够成为一个处于自己现实生活之外、自由、实验、不用畏惧他人眼光甚至可以独断专行的地方。我会从整体上对搭建网站的流程和使用到的技术及步骤进行介绍我希望看完此篇文章后，此前对此方面知识一无所知的小白，到最后也能搭建出一个属于自己的站点。（前提是认识基础的英语单词和善用搜索引擎）</p>
+<p>接下来就是我安装hexo博客的过程</p>
+<p>一. 下载和安装Node.js和Git</p>
+<p>二. 安装 Hexo</p>
+<p>三. 创建 Hexo</p>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="1-安装Node-js"><a href="#1-安装Node-js" class="headerlink" title="1.安装Node.js"></a>1.安装Node.js</h2><blockquote>
+<p><strong>什么是 Node.js ？</strong></p>
+<p>这得从什么是 JS 说起，JS 也就是 JavaScript。（为什么有种从盘古开天辟地开始的感觉）没错，JavaScript 就是网页的盘古。JavaScript 是一种编程语言，我们所见到的网页中的交互和逻辑处理几乎都是由 JavaScript 完成。<br>JavaScript 语法简单，易学易用。（当然也请不要小瞧它，虽然它入门门槛低，但上限同样也很高。包括但不限于实现网站前后端，手机桌面应用程序，机器学习，计算机图形学等。）<br>在 Node.js 诞生前，JavaScript 都运行于浏览器端。也就是说，它是鱼，浏览器是装满了水的水缸。<br>2008 年，Chrome V8 诞生。2009 年，Node.js 诞生。并成为 GitHub 早期最著名的开源项目。GitHub 可能大家已有所了解，后续再说。<br>Node.js 便是一个基于 Chrome V8 引擎的 JavaScript 运行环境。（当年第一次看到这句话时，我也一脸懵逼。）按照我的理解，JavaScript 是鱼，Chrome V8 就是抽水机，Node.js 则把这台抽水机也装在你电脑上。于是你的电脑也有了 Node.js 这个和浏览器相似的水缸，也可以在里面运行 JavaScript 了！<br>当然 Node.js 和浏览器端还是因为自身定位和一些历史原因而有些许区别的，不再展开。</p>
+<p><a href="https://baike.baidu.com/item/node.js/7567977" target="_blank" rel="noopener">Node.js | 百度百科</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript" target="_blank" rel="noopener">JavaScript | MDN</a></p>
+</blockquote>
+<p><a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">下载｜ Node.js</a></p>
+<p>建议下载<strong>长期支持版</strong>而非<strong>当前发布版</strong>（因为如果是最新版，容易出现一些奇妙的 bug）。</p>
+<p>全部默认下一步进行安装。</p>
+<p>Windows 打开命令提示符，后续如提到输入命令，均默认指打开终端进行输入。</p>
+<p>输入 <code>node --version</code>，如果得到的版本号与你方才安装的一致，那么 Node.js 就已经成功安装。</p>
+<h2 id="2-安装Git"><a href="#2-安装Git" class="headerlink" title="2.安装Git"></a>2.安装Git</h2><blockquote>
+<p>Git 是一个开源的分布式版本控制系统，由 Linus Torvalds（同时也是 Linux 的作者）为了管理 Linux 开发而开发。<br>简而言之，是一个版本管理工具。譬如设计师设计好了第三版的海报，客户却说还是要第一版吧，这时便可以通过 Git 快速回退到最初的版本。<br>你只需要把每次更改的状态（Git 会自动进行检测，你只要掌握基础的几条命令就可以了）告诉 Git，而不需要每个版本都保存一份压缩包，既方便也能大大节约空间。<br>（当然这主要只对代码文本起作用，因为 Git 的本质是记录各行代码的增减，倘若是像视频、海报这类二进制文件来说便体现不出丝毫优势了。当然想要应对这种场景还有 <a href="https://git-lfs.github.com/" target="_blank" rel="noopener">Git LFS</a>。）</p>
+</blockquote>
+<p>下载 <a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> 并安装（如果国内速度太慢，可以试试<a href="https://pc.qq.com/detail/13/detail_22693.html" target="_blank" rel="noopener">这里</a>）</p>
+<blockquote>
+<p>类似的工具还有：SVN。但始终更推荐 Git，因为它功能更为强大且它的背后还有更强大的生态：GitHub。</p>
+</blockquote>
+<p>Git也是全部默认下一步进行安装。</p>
+<p>在cmd窗口输入git 若若结果列出Git的各种用法，则表示Git安装成功。</p>
+<h2 id="三-安装hexo"><a href="#三-安装hexo" class="headerlink" title="三.安装hexo"></a>三.安装hexo</h2><p><a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></p>
+<ul>
+<li>GitHub: <a href="http://github.com/hexojs/hexo" target="_blank" rel="noopener">http://github.com/hexojs/hexo</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">官方文档</a>（直接参考文档也是一个不错的选择）</li>
+</ul>
+<p>所有必备的应用程序安装完成后，即可使用 npm 或者git来安装 Hexo。(建议使用git来安装,这样会比较方便。)</p>
+<p>在安装之前我建议你先创个blog文件，就是存放的你的hexo，然后在在文件夹中空白处鼠标右键打开git bash here。</p>
+<p><img src="https://yjxsbiubiu.top/CDN/git.png" alt="img"></p>
+<p>在终端中输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line"># 如果安装失败，可能是没有权限，可以尝试头部加上 sudo 重新执行</span><br><span class="line"># sudo npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>npm</code> 是随 Node.js 一起被安装的包管理工具，你可以理解成 Node.js 自带的应用商店。<br><code>install</code> 自然是安装。<br><code>hexo-cli</code> 则是 <code>hexo</code> 的终端工具，可以帮助你生成一些模版文件，之后再用到。<br><code>-g</code> 代表的是全局安装。也就是在任何地方都可以使用，否则会只能在安装的目录下使用。</p>
+</blockquote>
+<p>输入hexo -v，检查hexo是否安装成功 ，如下</p>
+<p><img src="https://yjxsbiubiu.top/CDN/45738.png" alt="img"></p>
+<p>这样hexo就已经安装成功了。不过还要创建hexo。</p>
+<h2 id="四-创建hexo"><a href="#四-创建hexo" class="headerlink" title="四.创建hexo"></a>四.创建hexo</h2><p>这样准备工作就完成了，接下来就开始正式创建hexo。</p>
+<p>在你刚才创建的文件夹还是在文件夹空白处点击Git，然后输入hexo init，初始化你的文件夹。</p>
+<p><img src="https://yjxsbiubiu.top/CDN/50853.png" alt="img"></p>
+<p><img src="https://yjxsbiubiu.top/CDN/2644.png" alt="img"></p>
+<p>如果你看到后面的“Start blogging with Hexo！”，就说明文件夹初始化完成。</p>
+<p>最后第二步就是输入npm install，安装所需要的组件。</p>
+<p><img src="https://yjxsbiubiu.top/CDN/152806.png" alt="img"></p>
+<h2 id="四-设置SSH-keys"><a href="#四-设置SSH-keys" class="headerlink" title="四.设置SSH keys"></a>四.<strong>设置SSH keys</strong></h2><p>1、在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。<br>ls -al ~/.ssh</p>
+<p>2、如果不存在就没有关系，如果存在的话，直接删除.ssh文件夹里面所有文件：<br><img src="http://img.blog.csdn.net/20161026183423330" alt="这里写图片描述"></p>
+<p>3、生成密钥：(与接下来的3二选一即可)</p>
+<blockquote>
+<p>git config –global user.email “<a href="mailto:1914324673@qq.com">1914324673@qq.com</a>” # 填写你github注册并且验证的邮箱</p>
+<p>git config –global user.name “jasmine-na” # github 用户名</p>
+<p>ssh-keygen # 会出现下面的内容，一直按Enter键就行</p>
+<p>Generating public/private rsa key pair.<br>Enter file in which to save the key (/home/logan/.ssh/id_rsa):<br>/home/logan/.ssh/id_rsa already exists.<br>Overwrite (y/n)? #因为我已经生成过了所以提示我，你就一直按就行</p>
+<p>最后在你的.ssh 目录下面生成 id_rsa(私钥) id_rsa.pub(公钥)俩个文件</p>
+<p>第二行会提示你在哪个目录下面生成文件。</p>
+</blockquote>
+<p>3、生成密钥另外一种方法：<br>输入以下指令（邮箱就是你注册Github时候的邮箱）后，回车：</p>
+<blockquote>
+<p>ssh-keygen -t rsa -C “<a href="mailto:1914324673@qq.com">1914324673@qq.com</a>”</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20161026183438862" alt="这里写图片描述"></p>
+<p>然后它会提示要你输入passphrase，直接回车：</p>
+<p><img src="http://img.blog.csdn.net/20161026183459454" alt="这里写图片描述"></p>
+<p>然后键入以下指令：</p>
+<blockquote>
+<p>ssh-agent -s</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20161026183549938" alt="这里写图片描述"></p>
+<p>继续输入指令：</p>
+<blockquote>
+<p>ssh-add ~/.ssh/id_rsa</p>
+</blockquote>
+<p>输入之后，出错：<br><img src="http://img.blog.csdn.net/20161026183614204" alt="这里写图片描述"></p>
+<p>出错，则输入：</p>
+<blockquote>
+<p>eval <code>ssh-agent -s</code><br>ssh-add</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20161026183638360" alt="这里写图片描述"></p>
+<p>4、打开.ssh/id_rsa.pub，全选复制Key<br><img src="http://img.blog.csdn.net/20161026183841596" alt="这里写图片描述"></p>
+<p>5、到Github<br><img src="http://img.blog.csdn.net/20161027110146361" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20161027110158205" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20161027110206799" alt="这里写图片描述"></p>
+<p>6、测试：</p>
+<blockquote>
+<p>ssh -T <a href="mailto:git@github.com">git@github.com</a></p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20161026183947385" alt="这里写图片描述"></p>
+<p>遇到警告输入“yes”，<br>最后输出 You’ve successfully authenticated 表示添加key 成功。</p>
+<p><strong>编辑_config.yml文件</strong></p>
+<p>修改文件里面的deploy，</p>
+<p>修改后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@gitee.com:chengfu9408&#x2F;myblog.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p><strong>完成部署</strong><br>1、 依次键入指令：</p>
+<blockquote>
+<p>hexo clean</p>
+<p>hexo generate</p>
+<p>hexo deploy</p>
+</blockquote>
+<p>2、在浏览器输入：<a href="https://chengfu9408.gitee.io/myblog" target="_blank" rel="noopener">https://chengfu9408.gitee.io/myblog</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/26/Markdown-%E8%AF%AD%E6%B3%95/" rel="prev" title="Markdown 语法">
+      <i class="fa fa-chevron-left"></i> Markdown 语法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/22/%E7%BD%91%E9%A1%B5%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%E8%BF%9E%E6%8E%A5/" rel="next" title="网页蓝牙设备连接">
+      网页蓝牙设备连接 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装Node-js"><span class="nav-number">2.1.</span> <span class="nav-text">1.安装Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装Git"><span class="nav-number">2.2.</span> <span class="nav-text">2.安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-安装hexo"><span class="nav-number">2.3.</span> <span class="nav-text">三.安装hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-创建hexo"><span class="nav-number">2.4.</span> <span class="nav-text">四.创建hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-设置SSH-keys"><span class="nav-number">2.5.</span> <span class="nav-text">四.设置SSH keys</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">陈龙</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈龙</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'a58fe661bc4c5d7afb51',
+      clientSecret: 'e0549bfc0194a32965af2be636fa7fc6b0d24f42',
+      repo        : 'comments',
+      owner       : 'AGou-ops',
+      admin       : ['AGou-ops'],
+      id          : '63aad94ce6096df30775f1131ac32a59',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
